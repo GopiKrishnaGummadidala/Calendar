@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InCoqnito.Kalender.Web", "InCoqnito.Kalender.Web\InCoqnito.Kalender.Web.csproj", "{0A4C50E1-E99D-4FCC-80C8-D2BDF49DA8E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InCoqnito.Kalender.Application", "InCoqnito.Kalender.Application\InCoqnito.Kalender.Application.csproj", "{BA91A3B9-F44B-4A11-946B-544194E16ED4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InCoqnito.Kalender.Shared", "InCoqnito.Kalender.Shared\InCoqnito.Kalender.Shared.csproj", "{EF0D3FCE-6ACC-48F5-8BE1-0296C90F5B56}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InCoqnito.Kalender.Models", "InCoqnito.Kalender.Models\InCoqnito.Kalender.Models.csproj", "{392F7264-29D6-4FE2-B658-921E3ED1198A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InCoqnito.Kalender.Data", "InCoqnito.Kalender.Data\InCoqnito.Kalender.Data.csproj", "{4582E2F7-7ACD-475E-A82A-9B08A2CE8AE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InCoqnito.Kalender.Database", "InCoqnito.Kalender.Database\InCoqnito.Kalender.Database.csproj", "{0B31FAF7-BE77-48F6-BBED-0F43EA9301F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InCoqnito.Kalender.Web", "InCoqnito.Kalender.Web\InCoqnito.Kalender.Web.csproj", "{F134006C-A0B6-44BC-839E-AD2F0E39E90D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +21,30 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0A4C50E1-E99D-4FCC-80C8-D2BDF49DA8E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A4C50E1-E99D-4FCC-80C8-D2BDF49DA8E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A4C50E1-E99D-4FCC-80C8-D2BDF49DA8E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A4C50E1-E99D-4FCC-80C8-D2BDF49DA8E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA91A3B9-F44B-4A11-946B-544194E16ED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA91A3B9-F44B-4A11-946B-544194E16ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA91A3B9-F44B-4A11-946B-544194E16ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA91A3B9-F44B-4A11-946B-544194E16ED4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF0D3FCE-6ACC-48F5-8BE1-0296C90F5B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF0D3FCE-6ACC-48F5-8BE1-0296C90F5B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF0D3FCE-6ACC-48F5-8BE1-0296C90F5B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF0D3FCE-6ACC-48F5-8BE1-0296C90F5B56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{392F7264-29D6-4FE2-B658-921E3ED1198A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{392F7264-29D6-4FE2-B658-921E3ED1198A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{392F7264-29D6-4FE2-B658-921E3ED1198A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{392F7264-29D6-4FE2-B658-921E3ED1198A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4582E2F7-7ACD-475E-A82A-9B08A2CE8AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4582E2F7-7ACD-475E-A82A-9B08A2CE8AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4582E2F7-7ACD-475E-A82A-9B08A2CE8AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4582E2F7-7ACD-475E-A82A-9B08A2CE8AE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B31FAF7-BE77-48F6-BBED-0F43EA9301F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B31FAF7-BE77-48F6-BBED-0F43EA9301F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B31FAF7-BE77-48F6-BBED-0F43EA9301F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B31FAF7-BE77-48F6-BBED-0F43EA9301F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F134006C-A0B6-44BC-839E-AD2F0E39E90D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F134006C-A0B6-44BC-839E-AD2F0E39E90D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F134006C-A0B6-44BC-839E-AD2F0E39E90D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F134006C-A0B6-44BC-839E-AD2F0E39E90D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="KalenderDB\Jobs\" />
+    <Folder Include="KalenderDB\StoredProcedures\" />
+    <Folder Include="KalenderDB\Tables\Employee\Create\" />
+    <Folder Include="KalenderDB\Tables\Employee\Insert\" />
+    <Folder Include="KalenderDB\Tables\Employee\Update\" />
+  </ItemGroup>
+
+</Project>
