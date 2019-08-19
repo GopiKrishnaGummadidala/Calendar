@@ -37,9 +37,12 @@ namespace InCoqnito.Kalender.Application.Invitation.Commands.Create
                     IsActive = true
                 });
 
-                await _kalenderDb.SaveChangesAsync();
-
-                response = MapEmployeeInvitation(1, request.invitationRequest);
+                var res = await _kalenderDb.SaveChangesAsync();
+                if(res > 0)
+                {
+                    var invId = _kalenderDb.Invitation.OrderByDescending(i => i.InvitationId).FirstOrDefault().InvitationId;
+                    response = MapEmployeeInvitation(invId, request.invitationRequest);
+                }
 
             }
             catch (Exception e)
@@ -59,7 +62,7 @@ namespace InCoqnito.Kalender.Application.Invitation.Commands.Create
                     _kalenderDb.EmployeeInvitationMap.Add(new Data.KalenderEntities.EmployeeInvitationMap()
                     {
                         InvitationId = invitationId,
-                        EmpId = employee.EmployeeId,
+                        EmpId = employee.Id,
                     });
                 }
 

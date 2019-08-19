@@ -7,6 +7,10 @@ namespace InCoqnito.Kalender.Models.Models.Request
 {
     public class InvitationRequest
     {
+        public InvitationRequest()
+        {
+            SharedEmails = new List<EmployeeDto>();
+        }
         public int AuthorId { get; set; }
         public DateTime Date { get; set; }
         public string StartTime { get; set; }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewmeetingService } from './newmeeting.service';
 import { ToastrService } from 'ngx-toastr'; 
+import { InvitationRequest } from '../models/InvitationRequest';
 
 @Component({
   selector: 'app-new-meeting',
@@ -23,7 +24,6 @@ export class NewMeetingComponent implements OnInit {
     this.meetingAuthor = 'gopikrishna.gummadidala@gmail.com';
     this.startTime = '09:00';
     this.endTime = '09:00';
-    this.toastr.success("Toastr Success message",'Success') 
     this.usersDropdownSettingsInit();
   }
 
@@ -65,6 +65,53 @@ export class NewMeetingComponent implements OnInit {
       enableSearchFilter: true,
       searchBy: ['name', 'emailId']
     };
+  }
+
+  validate(){
+    if(!this.meetingAuthor){
+      this.toastr.warning("Please enter Author", 'Warning');  
+      return false;
+    }
+    if(!this.meetingDate){
+      this.toastr.warning("Please enter Date", 'Warning');  
+      return false;
+    }
+    if(!this.meetingDescription){
+      this.toastr.warning("Please enter Description", 'Warning');  
+      return false;
+    }
+    if(!(this.startTime < this.endTime)){
+      this.toastr.warning("Please select valid Start and End Time", 'Warning');  
+      return false;
+    }
+    if(this.selectedUsers.length == 0){
+      this.toastr.warning("Please enter select Users", 'Warning');  
+      return false;
+    }
+      return true;
+  }
+
+  shareMeeting(){
+    if(this.validate()){
+      let request = new InvitationRequest();
+      request.authorId = 1;
+      request.date = this.meetingDate;
+      request.startTime = this.startTime;
+      request.endTime = this.endTime;
+      request.description = this.meetingDescription;
+      request.sharedEmails = this.selectedUsers;
+      this._meetingService.shareMeeting(request)
+      .subscribe(res => {
+        if(res){
+          this.toastr.warning("Successfully meeting shared", 'Success');  
+        }else{
+          this.toastr.warning("Something went wrong! Please try again later", 'Error'); 
+        }
+      }, error => {
+        console.log(error);
+        this.toastr.warning("Something went wrong! Please try again later", 'Error');
+      });
+    }
   }
 
 }

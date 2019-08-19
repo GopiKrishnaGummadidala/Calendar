@@ -17,10 +17,10 @@ export class NewmeetingService {
     .pipe(catchError(this.handleError));
   }
   
-  getCallFreshParticipants(request: InvitationRequest) {
+  shareMeeting(request: InvitationRequest) {
     const body = JSON.stringify(request);
     const headerOptions = new HttpHeaders({ 'Content-Type': 'application/json'});
-      return this.httpClient.post<boolean>('https://localhost:44336/api/employee', body, {
+      return this.httpClient.post<boolean>('https://localhost:44336/api/Invitation', body, {
         headers: headerOptions
       }).pipe(catchError(this.handleError));
   }
