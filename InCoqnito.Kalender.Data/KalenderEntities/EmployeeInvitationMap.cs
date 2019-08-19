@@ -12,7 +12,7 @@ namespace InCoqnito.Kalender.Data.KalenderEntities
         public string Comments { get; set; }
         public int? Rating { get; set; }
 
-        public Employee Emp { get; set; }
-        public Invitation Invitation { get; set; }
+        public virtual Employee Emp { get; set; }
+        public virtual Invitation Invitation { get; set; }
     }
 }

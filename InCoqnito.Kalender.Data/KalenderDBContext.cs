@@ -15,21 +15,35 @@ namespace InCoqnito.Kalender.Data
         {
         }
 
+        public virtual DbSet<EmailTemplate> EmailTemplate { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<EmployeeInvitationMap> EmployeeInvitationMap { get; set; }
         public virtual DbSet<Invitation> Invitation { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-8US955S\\SQLEXPRESS2014;Initial Catalog=KalenderDB;Integrated Security=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
+
+            modelBuilder.Entity<EmailTemplate>(entity =>
+            {
+                entity.Property(e => e.Template)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Type)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Employee>(entity =>
             {
                 entity.HasKey(e => e.EmpId);
@@ -45,6 +59,17 @@ namespace InCoqnito.Kalender.Data
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.Employee)
+                    .HasForeignKey(d => d.RoleId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Employee_Role");
             });
 
             modelBuilder.Entity<EmployeeInvitationMap>(entity =>
@@ -78,6 +103,8 @@ namespace InCoqnito.Kalender.Data
 
                 entity.Property(e => e.CreatedOn).HasColumnType("date");
 
+                entity.Property(e => e.InvDate).HasColumnType("date");
+
                 entity.Property(e => e.InvitationDescription)
                     .IsRequired()
                     .HasMaxLength(100)
@@ -90,6 +117,14 @@ namespace InCoqnito.Kalender.Data
                     .HasForeignKey(d => d.CreatedBy)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Invitation_Employee");
+            });
+
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.Property(e => e.RoleType)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
         }
     }

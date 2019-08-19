@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace InCoqnito.Kalender.Web
@@ -34,6 +35,13 @@ namespace InCoqnito.Kalender.Web
             services.AddMediatR(typeof(GetEmployeesQueryHandler).GetTypeInfo().Assembly);
             services.AddDbContext<KalenderDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("KalenderDatabase")));
 
+            services.AddCors(o => o.AddPolicy("AllowAll", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -43,6 +51,13 @@ namespace InCoqnito.Kalender.Web
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // Register the Swagger services
+            services.AddSwaggerDocument();
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "ClientApp/kalenderApp/dist";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +76,29 @@ namespace InCoqnito.Kalender.Web
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSpaStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseCors("AllowAll");
+
+            // Register the Swagger generator and the Swagger UI middlewares
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
+
+            //app.UseSpa(spa =>
+            //{
+            //    // To learn more about options for serving an Angular SPA from ASP.NET Core,
+            //    // see https://go.microsoft.com/fwlink/?linkid=864501
+
+            //    spa.Options.SourcePath = "ClientApp/kalenderApp/";
+
+            //    if (env.IsDevelopment())
+            //    {
+            //        spa.Options.StartupTimeout = new TimeSpan(0, 0, 90);
+            //        spa.UseAngularCliServer(npmScript: "start");
+            //        spa.UseProxyToSpaDevelopmentServer("https://localhost:44336");
+            //    }
+            //});
 
             app.UseMvc(routes =>
             {

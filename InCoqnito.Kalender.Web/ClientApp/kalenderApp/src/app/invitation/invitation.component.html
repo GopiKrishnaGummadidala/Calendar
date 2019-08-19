@@ -1,0 +1,42 @@
+<div class="main-content">
+    <form class="form-validation" #meetinForm="ngForm" method="post" action="#">
+        <div class="form-title-row">
+            <h1>Meeting</h1>
+        </div>
+        <div class="form-row form-input-name-row">
+            <label>
+                <span>Author</span>
+                <input type="text" name="meetingAuthor" [(ngModel)]="meetingAuthor">
+            </label>
+        </div>
+        <div class="form-row form-input-name-row">
+            <label>
+                <span>Date</span>
+            </label>
+            <label>
+                <span>{{meetingDate}}</span>
+            </label>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>Description</span>
+                <textarea name="meetingDescription" [(ngModel)]="meetingDescription"></textarea>
+            </label>
+        </div>
+        <div class="form-row form-input-email-row">
+            <label>
+                <span>rating</span>
+                <select name="rating" [(ngModel)]="rating">
+                    <option value="1">Bad</option>
+                    <option value="2">Average</option>
+                    <option value="3">Above Average</option>
+                    <option value="4">Good</option>
+                    <option value="5">Excellent</option>
+                </select>
+            </label>
+        </div>
+        <div class="form-row">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>

@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Employee\Commands\" />
-    <Folder Include="Invitation\Commands\" />
     <Folder Include="Invitation\Queries\" />
   </ItemGroup>
 
@@ -17,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\InCoqnito.Kalender.Data\InCoqnito.Kalender.Data.csproj" />
     <ProjectReference Include="..\InCoqnito.Kalender.Models\InCoqnito.Kalender.Models.csproj" />
+    <ProjectReference Include="..\InCoqnito.Kalender.Shared\InCoqnito.Kalender.Shared.csproj" />
   </ItemGroup>
 
 </Project>

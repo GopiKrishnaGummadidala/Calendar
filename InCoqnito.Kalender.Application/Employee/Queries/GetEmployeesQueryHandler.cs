@@ -22,7 +22,7 @@ namespace InCoqnito.Kalender.Application.Employee.Queries
             List<EmployeeVM> response = null;
             try
             {
-                response = await _kalenderDb.Employee.Where(e => e.IsActive == true).Select(s => new EmployeeVM { Id = s.EmpId, EmailId = s.EmpEmailId }).ToListAsync();
+                response = await _kalenderDb.Employee.Where(e => e.IsActive == true).Select(s => new EmployeeVM { Id = s.EmpId, EmailId = s.EmpEmailId, Name=s.EmpName }).ToListAsync();
             }
             catch(Exception e)
             {

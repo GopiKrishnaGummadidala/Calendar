@@ -1,0 +1,117 @@
+<div class="main-content">
+    <form class="form-validation" #meetinForm="ngForm"  method="post" action="#">
+      <div class="form-title-row">
+        <h1>Meeting</h1>
+      </div>
+      <div class="form-row form-input-name-row">
+        <label>
+          <span>Author</span>
+          <input type="text" name="meetingAuthor" [(ngModel)]="meetingAuthor">
+        </label>
+      </div>
+      <div class="form-row form-input-name-row">
+        <label>
+          <span>Select Date</span>
+        </label>
+       <input class="form-control" placeholder="yyyy-mm-dd"
+             name="dp" [(ngModel)]="meetingDate" ngbDatepicker #d="ngbDatepicker">
+      </div>
+      <div class="form-row form-input-email-row">
+        <label>
+          <span>Start Time</span>
+          <select name="startTime" [(ngModel)]="startTime">
+            <option value="09:00">09:00</option>
+            <option value="09:15">09:15</option>
+            <option value="09:30">09:30</option>
+            <option value="09:45">09:45</option>
+            <option value="10:00">10:00</option>
+            <option value="10:15">10:15</option>
+            <option value="10:30">10:30</option>
+            <option value="10:45">10:45</option>
+            <option value="11:00">11:00</option>
+            <option value="11:15">11:15</option>
+            <option value="11:30">11:30</option>
+            <option value="11:45">11:45</option>
+            <option value="12:00">12:00</option>
+            <option value="12:15">12:15</option>
+            <option value="12:30">12:30</option>
+            <option value="12:45">12:45</option>
+            <option value="13:00">13:00</option>
+            <option value="13:15">13:15</option>
+            <option value="13:30">13:30</option>
+            <option value="13:45">13:45</option>
+            <option value="14:00">14:00</option>
+            <option value="14:15">14:15</option>
+            <option value="14:30">14:30</option>
+            <option value="14:45">14:45</option>
+            <option value="15:00">15:00</option>
+            <option value="15:15">15:15</option>
+            <option value="15:30">15:30</option>
+            <option value="15:45">15:45</option>
+            <option value="16:00">16:00</option>
+        </select>
+        </label>
+      </div>
+      <div class="form-row form-input-email-row">
+        <label>
+          <span>End Time</span>
+          <select name="endTime" [(ngModel)]="endTime">
+            <option value="09:00">09:00</option>
+            <option value="09:15">09:15</option>
+            <option value="09:30">09:30</option>
+            <option value="09:45">09:45</option>
+            <option value="10:00">10:00</option>
+            <option value="10:15">10:15</option>
+            <option value="10:30">10:30</option>
+            <option value="10:45">10:45</option>
+            <option value="11:00">11:00</option>
+            <option value="11:15">11:15</option>
+            <option value="11:30">11:30</option>
+            <option value="11:45">11:45</option>
+            <option value="12:00">12:00</option>
+            <option value="12:15">12:15</option>
+            <option value="12:30">12:30</option>
+            <option value="12:45">12:45</option>
+            <option value="13:00">13:00</option>
+            <option value="13:15">13:15</option>
+            <option value="13:30">13:30</option>
+            <option value="13:45">13:45</option>
+            <option value="14:00">14:00</option>
+            <option value="14:15">14:15</option>
+            <option value="14:30">14:30</option>
+            <option value="14:45">14:45</option>
+            <option value="15:00">15:00</option>
+            <option value="15:15">15:15</option>
+            <option value="15:30">15:30</option>
+            <option value="15:45">15:45</option>
+            <option value="16:00">16:00</option>
+        </select>
+        </label>
+      </div>
+      <div class="form-row">
+        <label>
+            <span>Description</span>
+            <textarea name="meetingDescription" [(ngModel)]="meetingDescription"></textarea>
+        </label>
+     </div>
+      <div class="form-row">
+          <angular2-multiselect [data]="usersList" name="selectedUsers" [(ngModel)]="selectedUsers" [settings]="settings" (onSelect)="onItemSelect($event)"
+          (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)">
+          <c-search>
+               <ng-template>
+                   <input type="text" (keyup)="onSearch($event)" placeholder="Search Users" style="border: none;width: 100%; height: 100%;outline: none;"/>
+               </ng-template>
+          </c-search>
+          <c-item>
+              <ng-template let-item="item">
+                  <label style="color: #333;width: 150px;">{{item.name}}</label>
+                  <label style="padding-left: 10px; color:darkturquoise">{{item.emailId}}</label>
+              </ng-template>
+          </c-item>
+      </angular2-multiselect>
+      </div>
+      <div class="form-row">
+        <button type="submit">Share Invite</button>
+      </div>
+    </form>
+  </div>

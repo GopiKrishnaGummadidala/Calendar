@@ -12,6 +12,7 @@ namespace InCoqnito.Kalender.Data.KalenderEntities
 
         public int InvitationId { get; set; }
         public string InvitationDescription { get; set; }
+        public DateTime InvDate { get; set; }
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
         public int CreatedBy { get; set; }
@@ -20,7 +21,7 @@ namespace InCoqnito.Kalender.Data.KalenderEntities
         public DateTime? UpdateOn { get; set; }
         public bool? IsActive { get; set; }
 
-        public Employee CreatedByNavigation { get; set; }
-        public ICollection<EmployeeInvitationMap> EmployeeInvitationMap { get; set; }
+        public virtual Employee CreatedByNavigation { get; set; }
+        public virtual ICollection<EmployeeInvitationMap> EmployeeInvitationMap { get; set; }
     }
 }
