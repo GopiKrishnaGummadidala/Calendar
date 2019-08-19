@@ -36,7 +36,7 @@ namespace InCoqnito.Kalender.Shared
                 using (var emailClient = new SmtpClient())
                 {
                     emailClient.Connect("smtp.gmail.com", 587, false);
-                    emailClient.Authenticate("gummadidala.gummadidalatechyguy@gmail.com", "Y@xis123");
+                    emailClient.Authenticate("gummadidala.gummadidalatechyguy@gmail.com", "******");
                     emailClient.Send(message);
                     emailClient.Disconnect(true);
                 }

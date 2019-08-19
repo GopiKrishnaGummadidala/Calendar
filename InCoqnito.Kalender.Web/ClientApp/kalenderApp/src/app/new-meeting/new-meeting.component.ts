@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewmeetingService } from './newmeeting.service';
+import { ToastrService } from 'ngx-toastr'; 
 
 @Component({
   selector: 'app-new-meeting',
@@ -16,12 +17,13 @@ export class NewMeetingComponent implements OnInit {
   selectedUsers = [];
   settings = {};
 
-  constructor(private _meetingService: NewmeetingService) { }
+  constructor(private _meetingService: NewmeetingService, private toastr: ToastrService ) { }
 
   ngOnInit() {
     this.meetingAuthor = 'gopikrishna.gummadidala@gmail.com';
     this.startTime = '09:00';
     this.endTime = '09:00';
+    this.toastr.success("Toastr Success message",'Success') 
     this.usersDropdownSettingsInit();
   }
 

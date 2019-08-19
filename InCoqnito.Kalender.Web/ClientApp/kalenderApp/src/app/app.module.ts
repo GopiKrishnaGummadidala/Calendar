@@ -19,6 +19,7 @@ import { AllMeetingComponent } from './all-meeting/all-meeting.component';
 import { EmployeeManagementComponent } from './employee-management/employee-management.component';
 import { InvitationComponent } from './invitation/invitation.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ToastrModule } from 'ngx-toastr'; 
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatSelectModule,
     MatFormFieldModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ToastrModule.forRoot()
   ],
   providers: [MatDatepickerModule],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
