@@ -14,7 +14,7 @@ namespace InCoqnito.Kalender.Web.Controllers
     [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
     public class InvitationController : BaseController
     {
-        [HttpPost()]
+        [HttpGet()]
         [ProducesResponseType(typeof(InvitationVM), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> Get([FromRoute]int id)
         {

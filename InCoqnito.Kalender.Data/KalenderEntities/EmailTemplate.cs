@@ -9,5 +9,6 @@ namespace InCoqnito.Kalender.Data.KalenderEntities
         public int Id { get; set; }
         public string Type { get; set; }
         public string Template { get; set; }
+        public string Subject { get; set; }
     }
 }

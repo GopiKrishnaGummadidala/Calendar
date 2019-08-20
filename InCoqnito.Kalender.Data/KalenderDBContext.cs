@@ -42,6 +42,11 @@ namespace InCoqnito.Kalender.Data
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Subject)
+                   .IsRequired()
+                   .HasMaxLength(500)
+                   .IsUnicode(false);
             });
 
             modelBuilder.Entity<Employee>(entity =>

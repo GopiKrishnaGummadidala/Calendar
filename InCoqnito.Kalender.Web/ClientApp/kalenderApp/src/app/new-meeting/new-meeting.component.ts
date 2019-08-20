@@ -9,7 +9,7 @@ import { InvitationRequest } from '../models/InvitationRequest';
   styleUrls: ['./new-meeting.component.scss']
 })
 export class NewMeetingComponent implements OnInit {
-  public meetingDate: Date;
+  public meetingDate: string;
   public meetingAuthor: string;
   public startTime: string;
   public endTime: string;

@@ -84,11 +84,11 @@ namespace InCoqnito.Kalender.Application.Invitation.Commands.Create
 
             try
             {
-                var emailTemplate = _kalenderDb.EmailTemplate.FirstOrDefault(t => t.Template == "InvitationEmail");
+                var emailTemplate = _kalenderDb.EmailTemplate.FirstOrDefault(t => t.Type == "InvitationEmail");
                 if(emailTemplate != null)
                 {
                     emailTemplate.Template = emailTemplate.Template.Replace("[Author]", author).Replace("[Description]", invDescription);
-                    retRes = MailHelper.SendMail(emailTemplate.Template, "", emailIds);
+                    retRes = MailHelper.SendMail(emailTemplate.Template, emailTemplate.Subject, emailIds);
                 }
             }
             catch(Exception e)

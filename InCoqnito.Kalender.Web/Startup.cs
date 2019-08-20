@@ -20,6 +20,9 @@ using FluentValidation.AspNetCore;
 using FluentValidation;
 using InCoqnito.Kalender.Models.Models.Request;
 using InCoqnito.Kalender.Web.Validators;
+using InCoqnito.Kalender.Application.Invitation.Commands.Create;
+using InCoqnito.Kalender.Application.Invitation.Commands.Update;
+using InCoqnito.Kalender.Application.Invitation.Queries;
 
 namespace InCoqnito.Kalender.Web
 {
@@ -37,6 +40,9 @@ namespace InCoqnito.Kalender.Web
         {
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
             services.AddMediatR(typeof(GetEmployeesQueryHandler).GetTypeInfo().Assembly);
+            services.AddMediatR(typeof(CreateInvitationCommandHandler).GetTypeInfo().Assembly);
+            services.AddMediatR(typeof(UpdateInvitationCommandHandler).GetTypeInfo().Assembly);
+            services.AddMediatR(typeof(GetInvitationInfoByIdQueryHandler).GetTypeInfo().Assembly);
             services.AddDbContext<KalenderDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("KalenderDatabase")));
 
             services.AddCors(o => o.AddPolicy("AllowAll", builder =>

@@ -28,8 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/etorc-theme.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -94,8 +93,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/etorc-theme.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           }
