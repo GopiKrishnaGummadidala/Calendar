@@ -26,11 +26,12 @@ namespace InCoqnito.Kalender.Application.Invitation.Commands.Create
             {
                 var startTime = new TimeSpan(09, 00, 00);
                 var endTime = new TimeSpan(09, 30, 00);
+                var date = Convert.ToDateTime(request.invitationRequest.Date); // To Do
                 await _kalenderDb.Invitation.AddAsync(new Data.KalenderEntities.Invitation
                 {
                     CreatedBy = request.invitationRequest.AuthorId,
                     InvitationDescription = request.invitationRequest.Description,
-                    InvDate = request.invitationRequest.Date,
+                    InvDate = date,
                     StartTime = startTime,
                     EndTime = endTime,
                     CreatedOn = DateTime.Now,

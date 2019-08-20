@@ -24,7 +24,6 @@ export class NewMeetingComponent implements OnInit {
     this.meetingAuthor = 'gopikrishna.gummadidala@gmail.com';
     this.startTime = '09:00';
     this.endTime = '09:00';
-    this.toastr.success("Successfully meeting shared", 'Success',{timeOut:1000000});  
     this.usersDropdownSettingsInit();
   }
 
@@ -104,15 +103,14 @@ export class NewMeetingComponent implements OnInit {
       this._meetingService.shareMeeting(request)
       .subscribe(res => {
         if(res){
-          this.toastr.warning("Successfully meeting shared", 'Success');  
+          this.toastr.success("Successfully meeting shared", 'Success');  
         }else{
-          this.toastr.warning("Something went wrong! Please try again later", 'Error'); 
+          this.toastr.error("Something went wrong! Please try again later", 'Error'); 
         }
       }, error => {
         console.log(error);
-        this.toastr.warning("Something went wrong! Please try again later", 'Error');
+        this.toastr.error("Something went wrong! Please try again later", 'Error');
       });
     }
   }
-
 }

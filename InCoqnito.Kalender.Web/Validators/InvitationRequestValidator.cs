@@ -9,7 +9,7 @@ namespace InCoqnito.Kalender.Web.Validators
         public InvitationRequestValidator()
         {
             RuleFor(i => i.AuthorId).NotEqual(0);
-            RuleFor(i => i.Date).NotNull().GreaterThanOrEqualTo(DateTime.Now);
+            //RuleFor(i => i.Date).NotNull().GreaterThanOrEqualTo(DateTime.Now);
             RuleFor(i => i.Description).NotEmpty();
             RuleFor(i => i.StartTime).NotNull().NotEmpty();
             RuleFor(i => i.EndTime).NotNull().NotEmpty();

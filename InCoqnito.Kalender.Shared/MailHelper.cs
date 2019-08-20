@@ -23,7 +23,7 @@ namespace InCoqnito.Kalender.Shared
                 }
                 
                 //Setting the From e-mail address
-                message.From.Add(new MailboxAddress("Gopi Krishna", "from@domain.com"));
+                message.From.Add(new MailboxAddress("Gopi Krishna", "gummadidala.gummadidalatechyguy@gmail.com"));
                 //E-mail subject 
                 message.Subject = subject;
                 //E-mail message body

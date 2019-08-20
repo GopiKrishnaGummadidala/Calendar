@@ -1,7 +1,6 @@
 ﻿using InCoqnito.Kalender.Models.DTOs;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace InCoqnito.Kalender.Models.Models.Request
 {
@@ -12,7 +11,7 @@ namespace InCoqnito.Kalender.Models.Models.Request
             SharedEmails = new List<EmployeeDto>();
         }
         public int AuthorId { get; set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }
         public string Description { get; set; }

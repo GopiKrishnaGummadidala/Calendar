@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'newmeeting', component: NewMeetingComponent },
   { path: 'myMeetings/:id', component: MyMeetingComponent },
   { path: 'allMeeting/:id', component: AllMeetingComponent },
-  { path: 'invitation/:id/:userId', component: InvitationComponent },
+  { path: 'invitation/:invId/:empId', component: InvitationComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
