@@ -16,6 +16,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.DependencyInjection;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using InCoqnito.Kalender.Models.Models.Request;
+using InCoqnito.Kalender.Web.Validators;
 
 namespace InCoqnito.Kalender.Web
 {
@@ -49,8 +53,9 @@ namespace InCoqnito.Kalender.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSingleton<IValidator<InvitationRequest>, InvitationRequestValidator>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddFluentValidation();
 
             // Register the Swagger services
             services.AddSwaggerDocument();

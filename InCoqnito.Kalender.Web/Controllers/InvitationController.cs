@@ -16,7 +16,7 @@ namespace InCoqnito.Kalender.Web.Controllers
     {
         [HttpPost()]
         [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> Post(InvitationRequest request)
+        public async Task<IActionResult> Post([FromBody]InvitationRequest request)
         {
             if(request != null && request.SharedEmails != null && request.SharedEmails.Count > 0)
             {

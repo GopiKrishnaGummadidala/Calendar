@@ -92,7 +92,7 @@ namespace InCoqnito.Kalender.Application.Invitation.Commands.Create
             }
             catch(Exception e)
             {
-
+                //To do exception logging
             }
 
             return retRes;

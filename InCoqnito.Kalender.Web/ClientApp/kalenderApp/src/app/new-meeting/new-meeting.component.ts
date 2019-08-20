@@ -24,6 +24,7 @@ export class NewMeetingComponent implements OnInit {
     this.meetingAuthor = 'gopikrishna.gummadidala@gmail.com';
     this.startTime = '09:00';
     this.endTime = '09:00';
+    this.toastr.success("Successfully meeting shared", 'Success',{timeOut:1000000});  
     this.usersDropdownSettingsInit();
   }
 

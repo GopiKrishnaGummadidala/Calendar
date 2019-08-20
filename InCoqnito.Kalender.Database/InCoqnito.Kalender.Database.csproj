@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="KalenderDB\Jobs\" />
-    <Folder Include="KalenderDB\KalenderDBScript\" />
     <Folder Include="KalenderDB\StoredProcedures\" />
     <Folder Include="KalenderDB\Tables\Employee\Create\" />
     <Folder Include="KalenderDB\Tables\Employee\Insert\" />
