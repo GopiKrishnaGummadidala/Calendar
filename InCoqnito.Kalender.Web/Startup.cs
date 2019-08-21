@@ -23,6 +23,7 @@ using InCoqnito.Kalender.Web.Validators;
 using InCoqnito.Kalender.Application.Invitation.Commands.Create;
 using InCoqnito.Kalender.Application.Invitation.Commands.Update;
 using InCoqnito.Kalender.Application.Invitation.Queries;
+using InCoqnito.Kalender.Web.Hubs;
 
 namespace InCoqnito.Kalender.Web
 {
@@ -47,7 +48,7 @@ namespace InCoqnito.Kalender.Web
 
             services.AddCors(o => o.AddPolicy("AllowAll", builder =>
             {
-                builder.AllowAnyOrigin()
+                builder.WithOrigins("http://localhost:4200").AllowAnyOrigin()
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
@@ -58,6 +59,8 @@ namespace InCoqnito.Kalender.Web
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.AddSignalR();
 
             services.AddSingleton<IValidator<InvitationRequest>, InvitationRequestValidator>();
 
@@ -90,11 +93,17 @@ namespace InCoqnito.Kalender.Web
             app.UseSpaStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseCors("AllowAll");
 
             // Register the Swagger generator and the Swagger UI middlewares
             app.UseOpenApi();
             app.UseSwaggerUi3();
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<RatingHub>("/Rating");
+            });
+
+            app.UseCors("AllowAll");
 
             //app.UseSpa(spa =>
             //{

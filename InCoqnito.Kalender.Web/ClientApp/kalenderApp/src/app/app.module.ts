@@ -25,12 +25,12 @@ import { ToastrModule } from 'ngx-toastr';
   declarations: [
     AppComponent,
     HeaderComponent,
-    NewMeetingComponent,
-    MyMeetingComponent,
-    AllMeetingComponent,
-    EmployeeManagementComponent,
-    InvitationComponent,
-    PageNotFoundComponent
+    // NewMeetingComponent,
+    // MyMeetingComponent,
+    // AllMeetingComponent,
+    // EmployeeManagementComponent,
+    // InvitationComponent,
+    // PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -38,15 +38,9 @@ import { ToastrModule } from 'ngx-toastr';
     NoopAnimationsModule,
     AngularMultiSelectModule,
     HttpClientModule,
-    MaterialModule,
-    MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatInputModule,
-    MatSelectModule,
-    MatFormFieldModule,
+    MaterialModule,
     NgbModule,
     AppRoutingModule,
     ToastrModule.forRoot()
